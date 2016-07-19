@@ -1,0 +1,92 @@
+module example.Lib
+
+event createAgreement(id: Integer, withdrawLimit: Money) {
+  preconditions {
+    withdrawLimit >= EUR 0.00;
+  }
+}
+
+event addProductToAgreement(productId: Integer) {
+  postconditions {
+    productId in new this.productsInContract; 
+  }
+}
+
+event removeProductFromAgreement(productId: Integer) {
+  preconditions {
+    productId in this.productsInContract;
+  }
+  postconditions {
+    not (productId in this.productInContract);
+  }
+}
+
+event isProductInContract(productId: Integer) {
+  preconditions {
+    productId in this.productInContract;
+  }
+}
+
+event canWithdrawAmount(amount: Money) {
+  preconditions {
+    amount >= EUR 0.00;
+    amount <= this.withdrawLimit;
+  }  
+}
+
+event closeAgreement() {}
+
+event createCustomer(id: Integer, name: String) {
+  postconditions {
+    new this.id == id;
+    new this.name == name;
+  }
+}
+
+event isValidCustomer() {
+  preconditions {
+    this.id == id;
+  }
+}
+
+event died() {}
+
+event createSepaCT(transactionId: Integer, agreementId: Integer, customerId: Integer, from: IBAN, to: IBAN, amount: Money) {
+  postconditions {
+    new this.id == transactionId;
+    new this.from == from;
+    new this.to == to;
+    new this.amount == amount;
+    new this.customerId == customerId;
+    new this.agreementId == agreementId;
+  }
+}
+
+event validateSepaCT() {
+  preconditions {
+    initialized Customer[this.customerId];
+    
+    this.amount > EUR 0.00;       
+  }
+  sync {
+    Agreement[this.agreementId].canWithdrawAmount(amount);
+  }
+}
+
+event rejectIncorrectCustomer() {
+  preconditions {
+    finalized Customer[this.customerId];
+  }
+}
+
+event rejectWithdrawAmountOutsideLimit() {
+  sync {
+    not Agreement[this.agreementId].canWithdrawAmount(amount);
+  }
+}
+
+event rejectNegativeAmount() {
+  preconditions {
+    this.amount <= EUR 0.00;
+  }
+}

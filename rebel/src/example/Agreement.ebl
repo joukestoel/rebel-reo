@@ -1,0 +1,23 @@
+module example.Agreement
+
+import example.Lib
+
+specification Agreement {
+  fields {
+    id: Integer @key
+    withdrawLimit: Money
+  }
+  
+  events {
+    createAgreement[]
+    canWithdrawAmount[]
+    closeAgreement[] 
+  }
+  
+  lifeCycle {
+    initial init -> opened: createAgreement    
+    opened  -> opened: canWithdrawAmount
+            -> closed: closeAgreement
+    final closed
+  }
+}

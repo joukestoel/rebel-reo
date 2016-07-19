@@ -1,0 +1,37 @@
+module example.SepaCreditTransfer
+
+import example.Lib
+import example.Agreement
+import example.Customer
+import example.Product
+
+specification SepaCreditTransfer extends Product {
+  fields {
+    from: IBAN
+    to: IBAN
+    amount: Money
+    
+    customerId: Integer
+    agreementId: Integer
+  }
+  
+  events {
+    createSepaCT[]
+    validateSepaCT[]
+    rejectIncorrectCustomer[]
+    rejectWithdrawAmountOutsideLimit[]
+    rejectNegativeAmount[] 
+  }
+  
+  lifeCycle {
+    initial init -> created: createSepaCT
+    created -> validated: validateSepaCT
+            -> rejectedIncorrectCustomer: rejectIncorrectCustomer
+            -> rejectedWithdrawAmountOutsideLimit: rejectWithdrawAmountOutsideLimit
+            -> rejectedNegativeAmount: rejectNegativeAmount
+    validated
+    final rejectedIncorrectCustomer
+    final rejectedWithdrawAmountOutsideLimit
+    final rejectedNegativeAmount
+  }
+}

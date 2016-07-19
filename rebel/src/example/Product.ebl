@@ -1,0 +1,9 @@
+module example.Product
+
+import example.Lib
+
+abstract specification Product {
+  fields {
+    id: Integer @key
+  }
+}
