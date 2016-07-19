@@ -1,0 +1,21 @@
+module example.Customer
+
+import example.Lib
+
+specification Customer {
+  fields {
+    id: Integer @key
+    name: String    
+  }
+  
+  events {
+    createCustomer[]
+    died[]
+  }
+  
+  lifeCycle {
+    initial init -> active: createCustomer
+    active -> dead: died
+    final dead
+  }
+} 
