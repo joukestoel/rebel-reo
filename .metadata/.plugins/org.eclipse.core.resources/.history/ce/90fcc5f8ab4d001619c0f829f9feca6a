@@ -1,0 +1,62 @@
+include("platform:/plugin/nl.cwi.pr/src/nl/cwi/pr/autom/libr/Reo.pr")
+
+Connector(UserIn,p13,p21,p29;UserOut,p9,p17,p25) = 
+	Node([p2];[p1]) // Name: null
+	mult Node([UserIn];[p3,p4,p5]) // Name: UserIn
+	mult Node([p6,p7,p8];[UserOut]) // Name: UserOut
+	mult Node([p10];[p9]) // Name: null
+	mult Node([p13];[p11,p12]) // Name: null
+	mult XNode([p16];[p14,p15]) // Name: null
+	mult Node([p18];[p17]) // Name: null
+	mult Node([p21];[p19,p20]) // Name: null
+	mult XNode([p24];[p22,p23]) // Name: null
+	mult Node([p26];[p25]) // Name: null
+	mult Node([p29];[p27,p28]) // Name: null
+	mult Node([p32];[p30,p31]) // Name: null
+	mult Node([p35];[p33,p34]) // Name: null
+	mult Node([p39];[p36,p37,p38]) // Name: null
+	mult Node([p42];[p40,p41]) // Name: null
+	mult Node([p46];[p43,p44,p45]) // Name: null
+	mult Node([p49];[p47,p48]) // Name: null
+	mult Node([p52];[p50,p51]) // Name: null
+	mult Node([p55];[p53,p54]) // Name: null
+	mult Node([p57];[p56]) // Name: null
+	mult Node([p60];[p58,p59]) // Name: null
+	mult Node([p62];[p61]) // Name: null
+	mult FifoFull<''>(p59;p2)
+	mult Sync(p3;p10)
+	mult Sync(p11;p16)
+	mult Filter<'sct.Relations.Reject'>(p33;p32)
+	mult Sync(p19;p24)
+	mult Sync(p27;p6)
+	mult Sync(p14;p35)
+	mult SyncDrain(p34,p30;)
+	mult Sync(p31;p7)
+	mult Filter<'sct.Relations.Accept'>(p36;p42)
+	mult Sync(p15;p39)
+	mult Sync(p40;p18)
+	mult SyncDrain(p37,p41;)
+	mult Sync(p22;p46)
+	mult Sync(p47;p26)
+	mult Filter<'sct.relations.Accept'>(p43;p49)
+	mult SyncDrain(p44,p48;)
+	mult Sync(p23;p55)
+	mult Sync(p50;p8)
+	mult Filter<'sct.Relations.Reject'>(p53;p52)
+	mult SyncDrain(p4,p1;)
+	mult Fifo(p38;p57)
+	mult SyncDrain(p56,p20;)
+	mult Fifo(p45;p60)
+	mult SyncDrain(p58,p28;)
+	mult Fifo(p5;p62)
+	mult SyncDrain(p61,p12;)
+	mult SyncDrain(p51,p54;)
+
+main =
+		Connector(UserIn,p13,p21,p29;UserOut,p9,p17,p25)
+	among
+		sct.Processes.Customer(p9,p13) // Name: Customer
+		and sct.Processes.Product(p25,p29) // Name: Product
+		and sct.Processes.Agreement(p17,p21) // Name: Agreement
+
+

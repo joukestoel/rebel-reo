@@ -1,0 +1,7 @@
+
+public class Processes {
+
+	public static void Customer(InputPort in, OutputPort out) {
+		
+	}
+}

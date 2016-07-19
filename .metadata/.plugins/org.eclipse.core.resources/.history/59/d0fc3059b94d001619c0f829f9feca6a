@@ -1,0 +1,150 @@
+package pr.d20160719_t142130_087;
+
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+import nl.cwi.pr.runtime.*;
+import nl.cwi.pr.runtime.api.*;
+
+public class Main {
+
+	//
+	// MAIN
+	//
+
+	public static void main(String[] args) {
+		long time = -System.nanoTime();
+
+		OutputPort UserIn$1 = Ports.newOutputPort();
+		OutputPort p13$1 = Ports.newOutputPort();
+		OutputPort p21$1 = Ports.newOutputPort();
+		OutputPort p29$1 = Ports.newOutputPort();
+		InputPort UserOut$1 = Ports.newInputPort();
+		InputPort p17$1 = Ports.newInputPort();
+		InputPort p25$1 = Ports.newInputPort();
+		InputPort p9$1 = Ports.newInputPort();
+
+		new pr.d20160719_t142130_087.Protocol_d20160719_t142130_110_Connector(
+			UserIn$1,
+			p13$1,
+			p21$1,
+			p29$1,
+			UserOut$1,
+			p17$1,
+			p25$1,
+			p9$1
+		);
+
+		Thread worker0 = new pr.d20160719_t142130_087.Worker_d20160719_t142130_206_Agreement(
+			p21$1,
+			p17$1
+		);
+
+		Thread worker1 = new pr.d20160719_t142130_087.Worker_d20160719_t142130_189_Customer(
+			p13$1,
+			p9$1
+		);
+
+		Thread worker2 = new pr.d20160719_t142130_087.Worker_d20160719_t142130_199_Product(
+			p29$1,
+			p25$1
+		);
+
+		worker0.start();
+		worker1.start();
+		worker2.start();
+
+		long timeToInitialize = time + System.nanoTime();
+
+		/*
+		 * Run the application as a benchmark 
+		 */
+
+		if (Benchmark.IS_ENABLED) {
+
+			/*
+			 * Warm up
+			 */
+
+			Benchmark.SEMAPHORE.acquireUninterruptibly(3);
+			Benchmark.BARRIER = new CyclicBarrier(3 + 1);
+			Benchmark.N_GETS.set(0);
+			Benchmark.N_PUTS.set(0);
+
+			try {
+				Thread.sleep(Benchmark.WARM_UP_TIME * 1000);
+			} catch (InterruptedException e) {
+			}
+
+			worker0.interrupt();
+			worker1.interrupt();
+			worker2.interrupt();
+
+			//Benchmark.SEMAPHORE.acquireUninterruptibly(3);
+			try {
+				Benchmark.BARRIER.await();
+			} catch (InterruptedException | BrokenBarrierException exception) {
+				exception.printStackTrace();
+				System.exit(0);
+			}
+
+			/*
+			 * Measure
+			 */
+
+			try {
+				Thread.sleep(Benchmark.MEASURE_TIME * 1000);
+			} catch (InterruptedException e) {
+			}
+
+			worker0.interrupt();
+			worker1.interrupt();
+			worker2.interrupt();
+
+			Benchmark.SEMAPHORE.acquireUninterruptibly(3);
+			long nPuts = Benchmark.N_PUTS.get();
+			long nGets = Benchmark.N_GETS.get();
+
+			System.out
+					.println(new DecimalFormat("0.000")
+							.format(timeToInitialize / 1e9)
+							+ " "
+							+ nPuts
+							+ " "
+							+ nGets);
+		}
+
+		/*
+		 * Run the application normally
+		 */
+
+		else {
+			final Map<String, InputPort> freeInputPorts = new HashMap<>();
+			final Map<String, OutputPort> freeOutputPorts = new HashMap<>();
+			freeInputPorts.put("UserOut$1", UserOut$1);
+			freeOutputPorts.put("UserIn$1", UserIn$1);
+			Thread windowsThread = new Thread() {
+				@Override
+				public void run() {
+					if (!freeInputPorts.isEmpty() || !freeOutputPorts.isEmpty())
+						PortWindows.openThenWait(freeInputPorts, freeOutputPorts);
+				}
+			};
+
+			windowsThread.start();
+
+			while (true)
+				try {
+					worker0.join();
+					worker1.join();
+					worker2.join();
+					windowsThread.join();
+					break;
+				} catch (InterruptedException exception) {
+				}
+		}
+
+		System.exit(0);
+	}
+}

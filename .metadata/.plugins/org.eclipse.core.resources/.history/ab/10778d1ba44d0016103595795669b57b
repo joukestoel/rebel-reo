@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:channels="http://www.cwi.nl/reo/channels" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:reo="http://www.cwi.nl/reo" xsi:schemaLocation="http://www.cwi.nl/reo/channels http://www.cwi.nl/reo#//channels">
+  <reo:Module xmi:id="_XC_m8E2jEeaXHs044WcTeg">
+    <connectors xmi:type="reo:Connector" xmi:id="_XukTgE2jEeaXHs044WcTeg">
+      <nodes xmi:type="reo:Node" xmi:id="_ZwuYgE2jEeaXHs044WcTeg" sourceEnds="_bJhXcU2jEeaXHs044WcTeg" sinkEnds="_hlO2ok2jEeaXHs044WcTeg"/>
+      <nodes xmi:type="reo:Node" xmi:id="_aGAsAE2jEeaXHs044WcTeg" sourceEnds="_c6uPUE2jEeaXHs044WcTeg" sinkEnds="_bJhXc02jEeaXHs044WcTeg"/>
+      <nodes xmi:type="reo:Node" xmi:id="_acocQE2jEeaXHs044WcTeg" sourceEnds="_eTTy4k2jEeaXHs044WcTeg" sinkEnds="_c6uPUk2jEeaXHs044WcTeg"/>
+      <nodes xmi:type="reo:Node" xmi:id="_dXnmsE2jEeaXHs044WcTeg" sourceEnds="_gw0-ME2jEeaXHs044WcTeg" sinkEnds="_eTTy5E2jEeaXHs044WcTeg"/>
+      <nodes xmi:type="reo:Node" xmi:id="_fmMXEE2jEeaXHs044WcTeg" sourceEnds="_hlO2oE2jEeaXHs044WcTeg" sinkEnds="_gw0-Mk2jEeaXHs044WcTeg"/>
+      <primitives xmi:type="channels:FIFO" xmi:id="_bJgwYE2jEeaXHs044WcTeg">
+        <sourceEnds xmi:type="reo:SourceEnd" xmi:id="_bJhXcU2jEeaXHs044WcTeg" node="_ZwuYgE2jEeaXHs044WcTeg"/>
+        <sinkEnds xmi:type="reo:SinkEnd" xmi:id="_bJhXc02jEeaXHs044WcTeg" node="_aGAsAE2jEeaXHs044WcTeg"/>
+      </primitives>
+      <primitives xmi:type="channels:FIFO" xmi:id="_c6toQE2jEeaXHs044WcTeg">
+        <sourceEnds xmi:type="reo:SourceEnd" xmi:id="_c6uPUE2jEeaXHs044WcTeg" node="_aGAsAE2jEeaXHs044WcTeg"/>
+        <sinkEnds xmi:type="reo:SinkEnd" xmi:id="_c6uPUk2jEeaXHs044WcTeg" node="_acocQE2jEeaXHs044WcTeg"/>
+      </primitives>
+      <primitives xmi:type="channels:FIFO" xmi:id="_eTTy4E2jEeaXHs044WcTeg">
+        <sourceEnds xmi:type="reo:SourceEnd" xmi:id="_eTTy4k2jEeaXHs044WcTeg" node="_acocQE2jEeaXHs044WcTeg"/>
+        <sinkEnds xmi:type="reo:SinkEnd" xmi:id="_eTTy5E2jEeaXHs044WcTeg" node="_dXnmsE2jEeaXHs044WcTeg"/>
+      </primitives>
+      <primitives xmi:type="channels:FIFO" xmi:id="_gw0XIE2jEeaXHs044WcTeg">
+        <sourceEnds xmi:type="reo:SourceEnd" xmi:id="_gw0-ME2jEeaXHs044WcTeg" node="_dXnmsE2jEeaXHs044WcTeg"/>
+        <sinkEnds xmi:type="reo:SinkEnd" xmi:id="_gw0-Mk2jEeaXHs044WcTeg" node="_fmMXEE2jEeaXHs044WcTeg"/>
+      </primitives>
+      <primitives xmi:type="channels:Sync" xmi:id="_hlOPkE2jEeaXHs044WcTeg">
+        <sourceEnds xmi:type="reo:SourceEnd" xmi:id="_hlO2oE2jEeaXHs044WcTeg" node="_fmMXEE2jEeaXHs044WcTeg"/>
+        <sinkEnds xmi:type="reo:SinkEnd" xmi:id="_hlO2ok2jEeaXHs044WcTeg" node="_ZwuYgE2jEeaXHs044WcTeg"/>
+      </primitives>
+    </connectors>
+  </reo:Module>
+  <notation:Diagram xmi:id="_XDq8YE2jEeaXHs044WcTeg" type="Reo" element="_XC_m8E2jEeaXHs044WcTeg" name="default.reo" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_XuxH0E2jEeaXHs044WcTeg" type="1001" element="_XukTgE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Xu0LIE2jEeaXHs044WcTeg" type="4004"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_Xu0yME2jEeaXHs044WcTeg" type="5001">
+        <children xmi:type="notation:Shape" xmi:id="_ZwvmoE2jEeaXHs044WcTeg" type="2001" element="_ZwuYgE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ZwwNsE2jEeaXHs044WcTeg" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_ZwwNsU2jEeaXHs044WcTeg" y="5"/>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZwvmoU2jEeaXHs044WcTeg" x="52" y="322"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_aGB6IE2jEeaXHs044WcTeg" type="2001" element="_aGAsAE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+          <children xmi:type="notation:DecorationNode" xmi:id="_aGChME2jEeaXHs044WcTeg" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_aGChMU2jEeaXHs044WcTeg" y="5"/>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aGB6IU2jEeaXHs044WcTeg" x="135" y="337"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_acpqYE2jEeaXHs044WcTeg" type="2001" element="_acocQE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+          <children xmi:type="notation:DecorationNode" xmi:id="_acpqYk2jEeaXHs044WcTeg" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_acpqY02jEeaXHs044WcTeg" y="5"/>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_acpqYU2jEeaXHs044WcTeg" x="215" y="337"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_dXoNwE2jEeaXHs044WcTeg" type="2001" element="_dXnmsE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+          <children xmi:type="notation:DecorationNode" xmi:id="_dXo00E2jEeaXHs044WcTeg" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_dXo00U2jEeaXHs044WcTeg" y="5"/>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dXoNwU2jEeaXHs044WcTeg" x="310" y="322"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_fmM-IE2jEeaXHs044WcTeg" type="2001" element="_fmMXEE2jEeaXHs044WcTeg" fontName=".SF NS Text">
+          <children xmi:type="notation:DecorationNode" xmi:id="_fmNlME2jEeaXHs044WcTeg" type="4001">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_fmNlMU2jEeaXHs044WcTeg" y="5"/>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fmM-IU2jEeaXHs044WcTeg" x="405" y="337"/>
+        </children>
+      </children>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XuxH0U2jEeaXHs044WcTeg" x="181" y="59" width="501" height="462"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XDq8YU2jEeaXHs044WcTeg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_bJsWkE2jEeaXHs044WcTeg" type="3003" element="_bJgwYE2jEeaXHs044WcTeg" source="_ZwvmoE2jEeaXHs044WcTeg" target="_aGB6IE2jEeaXHs044WcTeg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_bJsWkU2jEeaXHs044WcTeg" fontName=".SF NS Text"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bJsWkk2jEeaXHs044WcTeg" points="[8, 5, -67, -1]$[76, -2, 1, -8]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_c6u2YE2jEeaXHs044WcTeg" type="3003" element="_c6toQE2jEeaXHs044WcTeg" source="_aGB6IE2jEeaXHs044WcTeg" target="_acpqYE2jEeaXHs044WcTeg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_c6u2YU2jEeaXHs044WcTeg" fontName=".SF NS Text"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_c6u2Yk2jEeaXHs044WcTeg" points="[8, -2, -72, -2]$[79, -8, -1, -8]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_eTVBAE2jEeaXHs044WcTeg" type="3003" element="_eTTy4E2jEeaXHs044WcTeg" source="_acpqYE2jEeaXHs044WcTeg" target="_dXoNwE2jEeaXHs044WcTeg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_eTVBAU2jEeaXHs044WcTeg" fontName=".SF NS Text"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eTVBAk2jEeaXHs044WcTeg" points="[8, 4, -88, -1]$[98, -3, 2, -8]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_gw2MUE2jEeaXHs044WcTeg" type="3003" element="_gw0XIE2jEeaXHs044WcTeg" source="_dXoNwE2jEeaXHs044WcTeg" target="_fmM-IE2jEeaXHs044WcTeg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_gw2MUU2jEeaXHs044WcTeg" fontName=".SF NS Text"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gw2MUk2jEeaXHs044WcTeg" points="[8, 1, -112, -30]$[123, 23, 3, -8]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_hlQEwE2jEeaXHs044WcTeg" type="3001" element="_hlOPkE2jEeaXHs044WcTeg" source="_fmM-IE2jEeaXHs044WcTeg" target="_ZwvmoE2jEeaXHs044WcTeg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_hlQEwU2jEeaXHs044WcTeg" fontName=".SF NS Text"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hlQEwk2jEeaXHs044WcTeg" points="[0, 8, 353, 23]$[0, 38, 353, 53]$[-353, 38, 0, 53]$[-353, -7, 0, 8]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

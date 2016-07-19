@@ -1,0 +1,28 @@
+package sct;
+
+import nl.cwi.pr.runtime.api.InputPort;
+import nl.cwi.pr.runtime.api.OutputPort;
+
+public class Processes {
+
+	public static void Customer(InputPort in, OutputPort out) {
+		while (true) {
+			Object o = in.getUninterruptibly();
+			out.putUninterruptibly(o);
+		}
+	}
+
+	public static void Product(InputPort in, OutputPort out) {
+		while (true) {
+			Object o = in.getUninterruptibly();
+			out.putUninterruptibly(o);
+		}
+	}
+
+	public static void Agreement(InputPort in, OutputPort out) {
+		while (true) {
+			Object o = in.getUninterruptibly();
+			out.putUninterruptibly(o);
+		}
+	}
+}

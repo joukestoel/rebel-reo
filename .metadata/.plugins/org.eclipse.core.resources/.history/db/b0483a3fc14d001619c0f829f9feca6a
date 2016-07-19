@@ -1,0 +1,3004 @@
+package pr.d20160719_t144508_743;
+
+import java.util.*;
+import java.util.concurrent.atomic.*;
+
+import nl.cwi.pr.runtime.*;
+import nl.cwi.pr.runtime.api.*;
+
+public class Protocol_d20160719_t144508_764_Connector {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Automata
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99 automaton99;
+
+	/*
+	 * Public ports
+	 */
+
+	final PublicPort UserIn$1;
+	final PublicPort UserOut$1;
+	final PublicPort p13$1;
+	final PublicPort p17$1;
+	final PublicPort p21$1;
+	final PublicPort p25$1;
+	final PublicPort p29$1;
+	final PublicPort p9$1;
+
+	/*
+	 * Memory cells
+	 */
+
+	final MemoryCell memoryCell1 = new MemoryCell();
+	final MemoryCell memoryCell2 = new MemoryCell();
+	final MemoryCell memoryCell3 = new MemoryCell();
+	final MemoryCell memoryCell4 = new MemoryCell();
+
+	/*
+	 * Variable pool
+	 */
+
+	final CspVariablePool variablePool = new CspVariablePool();
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector(
+		Port UserIn$1,
+		Port p13$1,
+		Port p21$1,
+		Port p29$1,
+		Port UserOut$1,
+		Port p17$1,
+		Port p25$1,
+		Port p9$1
+	) {
+
+		/*
+		 * Set public ports
+		 */
+
+		this.UserIn$1 = (PublicPort) UserIn$1;
+		this.UserOut$1 = (PublicPort) UserOut$1;
+		this.p13$1 = (PublicPort) p13$1;
+		this.p17$1 = (PublicPort) p17$1;
+		this.p21$1 = (PublicPort) p21$1;
+		this.p25$1 = (PublicPort) p25$1;
+		this.p29$1 = (PublicPort) p29$1;
+		this.p9$1 = (PublicPort) p9$1;
+
+		/*
+		 * Set automata
+		 */
+
+		this.automaton99 = new Protocol_d20160719_t144508_764_Connector_Automaton99();
+
+		/*
+		 * Initialize
+		 */
+
+		initialize();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize() {
+
+		/*
+		 * Initialize ports in automaton #99
+		 */
+
+		{
+			this.UserIn$1.handler = new HandlerForUserIn$1(this);
+			this.p13$1.handler = new HandlerForp13$1(this);
+			this.p21$1.handler = new HandlerForp21$1(this);
+			this.p29$1.handler = new HandlerForp29$1(this);
+			this.UserOut$1.handler = new HandlerForUserOut$1(this);
+			this.p17$1.handler = new HandlerForp17$1(this);
+			this.p25$1.handler = new HandlerForp25$1(this);
+			this.p9$1.handler = new HandlerForp9$1(this);
+		}
+
+		/*
+		 * Initialize automata
+		 */
+
+		this.automaton99.initialize(this);
+	}
+
+	//
+	// MAIN
+	//
+
+	public static void main(String[] args) {
+		OutputPort UserIn$1 = Ports.newOutputPort();
+		OutputPort p13$1 = Ports.newOutputPort();
+		OutputPort p21$1 = Ports.newOutputPort();
+		OutputPort p29$1 = Ports.newOutputPort();
+		InputPort UserOut$1 = Ports.newInputPort();
+		InputPort p17$1 = Ports.newInputPort();
+		InputPort p25$1 = Ports.newInputPort();
+		InputPort p9$1 = Ports.newInputPort();
+
+		new Protocol_d20160719_t144508_764_Connector(
+			UserIn$1,
+			p13$1,
+			p21$1,
+			p29$1,
+			UserOut$1,
+			p17$1,
+			p25$1,
+			p9$1
+		);
+
+		Map<String, Port> inputPorts = new HashMap<>();
+		inputPorts.put("UserIn$1", (Port) UserIn$1);
+		inputPorts.put("p13$1", (Port) p13$1);
+		inputPorts.put("p21$1", (Port) p21$1);
+		inputPorts.put("p29$1", (Port) p29$1);
+
+		Map<String, Port> outputPorts = new HashMap<>();
+		outputPorts.put("UserOut$1", (Port) UserOut$1);
+		outputPorts.put("p17$1", (Port) p17$1);
+		outputPorts.put("p25$1", (Port) p25$1);
+		outputPorts.put("p9$1", (Port) p9$1);
+
+		new Thread(new Console(inputPorts, outputPorts)).start();
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99 extends Automaton {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State1 state1;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State2 state2;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State3 state3;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State4 state4;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State5 state5;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current = new Current();
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99() {
+		super(8);
+
+		/*
+		 * Set states
+		 */
+
+		this.state1 = new Protocol_d20160719_t144508_764_Connector_Automaton99_State1();
+		this.state2 = new Protocol_d20160719_t144508_764_Connector_Automaton99_State2();
+		this.state3 = new Protocol_d20160719_t144508_764_Connector_Automaton99_State3();
+		this.state4 = new Protocol_d20160719_t144508_764_Connector_Automaton99_State4();
+		this.state5 = new Protocol_d20160719_t144508_764_Connector_Automaton99_State5();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Initialize states
+		 */
+
+		this.state1.initialize(protocol);
+		this.state2.initialize(protocol);
+		this.state3.initialize(protocol);
+		this.state4.initialize(protocol);
+		this.state5.initialize(protocol);
+
+		/*
+		 * Reach initial state
+		 */
+
+		this.state5.reach();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_State1 extends State {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Current state
+	 */
+
+	Current current;
+
+	/*
+	 * Successor
+	 */
+
+	State successor;
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99_State1() {
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reach() {
+
+		/*
+		 * Update current state
+		 */
+
+		current.state = this;
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reachSuccessor() {
+		successor.reach();
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_State2 extends State {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Current state
+	 */
+
+	Current current;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p21$1;
+	PublicPort p25$1;
+
+	/*
+	 * Transitions
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition7 transition7;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition10 transition10;
+
+	/*
+	 * Observable transitions per port
+	 */
+
+		final Transition[] oTransitionsInvolvingp21$1;
+	
+
+	/*
+	 * Fairness indices for observable transitions
+	 */
+
+		int oTransitionsInvolvingp21$1Index = 0;
+	
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99_State2() {
+
+		/*
+		 * Set transitions
+		 */
+
+		this.transition7 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition7();
+		this.transition10 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition10();
+
+		/*
+		 * Set observable transitions per port
+		 */
+
+				
+		this.oTransitionsInvolvingp21$1 = new Transition[] {
+			this.transition7,
+			this.transition10
+		};
+
+
+		
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p21$1 = protocol.p21$1;
+		this.p25$1 = protocol.p25$1;
+
+		/*
+		 * Initialize transitions
+		 */
+
+		this.transition7.initialize(protocol);
+		this.transition10.initialize(protocol);
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reach() {
+
+		/*
+		 * Update current state
+		 */
+
+		current.state = this;
+
+		/*
+		 * Unblock public ports
+		 */
+
+		UserOut$1.semaphore.release();
+		p21$1.semaphore.release();
+		p25$1.semaphore.release();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_State3 extends State {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Current state
+	 */
+
+	Current current;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p13$1;
+	PublicPort p17$1;
+
+	/*
+	 * Transitions
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition8 transition8;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition11 transition11;
+
+	/*
+	 * Observable transitions per port
+	 */
+
+		final Transition[] oTransitionsInvolvingp13$1;
+	
+
+	/*
+	 * Fairness indices for observable transitions
+	 */
+
+		int oTransitionsInvolvingp13$1Index = 0;
+	
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99_State3() {
+
+		/*
+		 * Set transitions
+		 */
+
+		this.transition8 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition8();
+		this.transition11 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition11();
+
+		/*
+		 * Set observable transitions per port
+		 */
+
+				
+		this.oTransitionsInvolvingp13$1 = new Transition[] {
+			this.transition8,
+			this.transition11
+		};
+
+
+		
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p13$1 = protocol.p13$1;
+		this.p17$1 = protocol.p17$1;
+
+		/*
+		 * Initialize transitions
+		 */
+
+		this.transition8.initialize(protocol);
+		this.transition11.initialize(protocol);
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reach() {
+
+		/*
+		 * Update current state
+		 */
+
+		current.state = this;
+
+		/*
+		 * Unblock public ports
+		 */
+
+		UserOut$1.semaphore.release();
+		p13$1.semaphore.release();
+		p17$1.semaphore.release();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_State4 extends State {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Current state
+	 */
+
+	Current current;
+
+	/*
+	 * Successor
+	 */
+
+	State successor;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p29$1;
+
+	/*
+	 * Transitions
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition9 transition9;
+
+	/*
+	 * Observable transitions per port
+	 */
+
+		
+
+	/*
+	 * Fairness indices for observable transitions
+	 */
+
+		
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99_State4() {
+
+		/*
+		 * Set transitions
+		 */
+
+		this.transition9 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition9();
+
+		/*
+		 * Set observable transitions per port
+		 */
+
+				
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set successor
+		 */
+
+		this.successor = protocol.automaton99.state5;
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p29$1 = protocol.p29$1;
+
+		/*
+		 * Initialize transitions
+		 */
+
+		this.transition9.initialize(protocol);
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reach() {
+
+		/*
+		 * Update current state
+		 */
+
+		current.state = this;
+
+		/*
+		 * Unblock public ports
+		 */
+
+		UserOut$1.semaphore.release();
+		p29$1.semaphore.release();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reachSuccessor() {
+		successor.reach();
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_State5 extends State {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Current state
+	 */
+
+	Current current;
+
+	/*
+	 * Successor
+	 */
+
+	State successor;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserIn$1;
+	PublicPort p9$1;
+
+	/*
+	 * Transitions
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_Transition12 transition12;
+
+	/*
+	 * Observable transitions per port
+	 */
+
+		
+
+	/*
+	 * Fairness indices for observable transitions
+	 */
+
+		
+	//
+	// CONSTRUCTORS
+	//
+
+	public Protocol_d20160719_t144508_764_Connector_Automaton99_State5() {
+
+		/*
+		 * Set transitions
+		 */
+
+		this.transition12 = new Protocol_d20160719_t144508_764_Connector_Automaton99_Transition12();
+
+		/*
+		 * Set observable transitions per port
+		 */
+
+				
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set successor
+		 */
+
+		this.successor = protocol.automaton99.state3;
+		/*
+		 * Set ports 
+		 */
+
+		this.UserIn$1 = protocol.UserIn$1;
+		this.p9$1 = protocol.p9$1;
+
+		/*
+		 * Initialize transitions
+		 */
+
+		this.transition12.initialize(protocol);
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reach() {
+
+		/*
+		 * Update current state
+		 */
+
+		current.state = this;
+
+		/*
+		 * Unblock public ports
+		 */
+
+		UserIn$1.semaphore.release();
+		p9$1.semaphore.release();
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	@Override
+	public void reachSuccessor() {
+		successor.reach();
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition7 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p21$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State1 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000000010100);
+
+			/*
+			 * Unblock ports
+			 */
+
+			UserOut$1.status = IO.COMPLETED;
+			UserOut$1.semaphore.release();
+			p21$1.status = IO.COMPLETED;
+			p21$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p21$1 = protocol.p21$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state1;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000000010100)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable UserOut$1;
+		final private CspPortVariable p21$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell1$pre;
+		final private CspPreVariable memoryCell3$pre;
+		final private CspPreVariable memoryCell4$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell1$post;
+		final private CspPostVariable memoryCell3$post;
+		final private CspPostVariable memoryCell4$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.UserOut$1 = protocol.variablePool.newOrGetPortVariable(protocol.UserOut$1);
+			this.p21$1 = protocol.variablePool.newOrGetPortVariable(protocol.p21$1);
+			this.memoryCell1$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell1);
+			this.memoryCell3$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell3);
+			this.memoryCell4$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell4);
+			this.memoryCell1$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell1);
+			this.memoryCell3$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell3);
+			this.memoryCell4$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell4);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell4$pre.importValue();
+			memoryCell3$pre.importValue();
+			memoryCell1$pre.importValue();
+			p21$1.importValue();
+			memoryCell1$post.setValue(memoryCell1$pre.getValue());
+			memoryCell3$post.setValue(memoryCell3$pre.getValue());
+			memoryCell4$post.setValue(memoryCell4$pre.getValue());
+			UserOut$1.setValue(p21$1.getValue());
+			if (!sct.Relations.Reject(UserOut$1.getValue()))
+				return false;
+			UserOut$1.exportValue();
+			memoryCell1$post.exportValue();
+			memoryCell3$post.exportValue();
+			memoryCell4$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition10 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort p21$1;
+	PublicPort p25$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State4 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000001000100);
+
+			/*
+			 * Unblock ports
+			 */
+
+			p21$1.status = IO.COMPLETED;
+			p21$1.semaphore.release();
+			p25$1.status = IO.COMPLETED;
+			p25$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.p21$1 = protocol.p21$1;
+		this.p25$1 = protocol.p25$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state4;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000001000100)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable p21$1;
+		final private CspPortVariable p25$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell1$pre;
+		final private CspPreVariable memoryCell4$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell1$post;
+		final private CspPostVariable memoryCell3$post;
+		final private CspPostVariable memoryCell4$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.p21$1 = protocol.variablePool.newOrGetPortVariable(protocol.p21$1);
+			this.p25$1 = protocol.variablePool.newOrGetPortVariable(protocol.p25$1);
+			this.memoryCell1$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell1);
+			this.memoryCell4$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell4);
+			this.memoryCell1$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell1);
+			this.memoryCell3$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell3);
+			this.memoryCell4$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell4);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell4$pre.importValue();
+			memoryCell1$pre.importValue();
+			p21$1.importValue();
+			memoryCell1$post.setValue(memoryCell1$pre.getValue());
+			memoryCell4$post.setValue(memoryCell4$pre.getValue());
+			p25$1.setValue(p21$1.getValue());
+			memoryCell3$post.setValue(p25$1.getValue());
+			if (!sct.Relations.Accept(p25$1.getValue()))
+				return false;
+			p25$1.exportValue();
+			memoryCell1$post.exportValue();
+			memoryCell3$post.exportValue();
+			memoryCell4$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition8 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p13$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State1 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000000010010);
+
+			/*
+			 * Unblock ports
+			 */
+
+			UserOut$1.status = IO.COMPLETED;
+			UserOut$1.semaphore.release();
+			p13$1.status = IO.COMPLETED;
+			p13$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p13$1 = protocol.p13$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state1;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000000010010)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable UserOut$1;
+		final private CspPortVariable p13$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell1$pre;
+		final private CspPreVariable memoryCell2$pre;
+		final private CspPreVariable memoryCell3$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell1$post;
+		final private CspPostVariable memoryCell2$post;
+		final private CspPostVariable memoryCell3$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.UserOut$1 = protocol.variablePool.newOrGetPortVariable(protocol.UserOut$1);
+			this.p13$1 = protocol.variablePool.newOrGetPortVariable(protocol.p13$1);
+			this.memoryCell1$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell1);
+			this.memoryCell2$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell2);
+			this.memoryCell3$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell3);
+			this.memoryCell1$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell1);
+			this.memoryCell2$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell2);
+			this.memoryCell3$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell3);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell3$pre.importValue();
+			memoryCell2$pre.importValue();
+			memoryCell1$pre.importValue();
+			p13$1.importValue();
+			memoryCell1$post.setValue(memoryCell1$pre.getValue());
+			memoryCell3$post.setValue(memoryCell3$pre.getValue());
+			memoryCell2$post.setValue(memoryCell2$pre.getValue());
+			UserOut$1.setValue(p13$1.getValue());
+			if (!sct.Relations.Reject(UserOut$1.getValue()))
+				return false;
+			UserOut$1.exportValue();
+			memoryCell1$post.exportValue();
+			memoryCell2$post.exportValue();
+			memoryCell3$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition11 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort p13$1;
+	PublicPort p17$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State2 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000000100010);
+
+			/*
+			 * Unblock ports
+			 */
+
+			p13$1.status = IO.COMPLETED;
+			p13$1.semaphore.release();
+			p17$1.status = IO.COMPLETED;
+			p17$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.p13$1 = protocol.p13$1;
+		this.p17$1 = protocol.p17$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state2;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000000100010)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable p13$1;
+		final private CspPortVariable p17$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell1$pre;
+		final private CspPreVariable memoryCell3$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell1$post;
+		final private CspPostVariable memoryCell2$post;
+		final private CspPostVariable memoryCell3$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.p13$1 = protocol.variablePool.newOrGetPortVariable(protocol.p13$1);
+			this.p17$1 = protocol.variablePool.newOrGetPortVariable(protocol.p17$1);
+			this.memoryCell1$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell1);
+			this.memoryCell3$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell3);
+			this.memoryCell1$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell1);
+			this.memoryCell2$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell2);
+			this.memoryCell3$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell3);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell3$pre.importValue();
+			memoryCell1$pre.importValue();
+			p13$1.importValue();
+			memoryCell1$post.setValue(memoryCell1$pre.getValue());
+			memoryCell3$post.setValue(memoryCell3$pre.getValue());
+			p17$1.setValue(p13$1.getValue());
+			memoryCell2$post.setValue(p17$1.getValue());
+			if (!sct.Relations.Accept(p17$1.getValue()))
+				return false;
+			p17$1.exportValue();
+			memoryCell1$post.exportValue();
+			memoryCell2$post.exportValue();
+			memoryCell3$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition9 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserOut$1;
+	PublicPort p29$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State5 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000000011000);
+
+			/*
+			 * Unblock ports
+			 */
+
+			UserOut$1.status = IO.COMPLETED;
+			UserOut$1.semaphore.release();
+			p29$1.status = IO.COMPLETED;
+			p29$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserOut$1 = protocol.UserOut$1;
+		this.p29$1 = protocol.p29$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state5;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000000011000)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable UserOut$1;
+		final private CspPortVariable p29$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell2$pre;
+		final private CspPreVariable memoryCell3$pre;
+		final private CspPreVariable memoryCell4$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell1$post;
+		final private CspPostVariable memoryCell2$post;
+		final private CspPostVariable memoryCell4$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.UserOut$1 = protocol.variablePool.newOrGetPortVariable(protocol.UserOut$1);
+			this.p29$1 = protocol.variablePool.newOrGetPortVariable(protocol.p29$1);
+			this.memoryCell2$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell2);
+			this.memoryCell3$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell3);
+			this.memoryCell4$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell4);
+			this.memoryCell1$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell1);
+			this.memoryCell2$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell2);
+			this.memoryCell4$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell4);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell4$pre.importValue();
+			memoryCell3$pre.importValue();
+			memoryCell2$pre.importValue();
+			p29$1.importValue();
+			memoryCell4$post.setValue(memoryCell4$pre.getValue());
+			memoryCell2$post.setValue(memoryCell2$pre.getValue());
+			UserOut$1.setValue(p29$1.getValue());
+			memoryCell1$post.setValue(memoryCell3$pre.getValue());
+			UserOut$1.exportValue();
+			memoryCell1$post.exportValue();
+			memoryCell2$post.exportValue();
+			memoryCell4$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class Protocol_d20160719_t144508_764_Connector_Automaton99_Transition12 extends Transition {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context
+	 */
+
+	Context context;
+
+	/*
+	 * Public ports
+	 */
+
+	PublicPort UserIn$1;
+	PublicPort p9$1;
+
+	/*
+	 * Data constraint
+	 */
+
+	DataConstraint dataConstraint;
+
+	/*
+	 * Target
+	 */
+
+	Protocol_d20160719_t144508_764_Connector_Automaton99_State3 target;
+
+	//
+	// METHODS - PUBLIC
+	//
+
+	@Override
+	public boolean fire() {
+
+		/*
+		 * Check synchronization/data constraint
+		 */
+
+		boolean canFire = checkSynchronizationSet() && checkDataConstraint();
+
+		/*
+		 * Finalize transition
+		 */
+
+		if (canFire) {
+
+			/*
+			 * Update context
+			 */
+
+			context.remove(0, 0b00000000000000000000000010000001);
+
+			/*
+			 * Unblock ports
+			 */
+
+			UserIn$1.status = IO.COMPLETED;
+			UserIn$1.semaphore.release();
+			p9$1.status = IO.COMPLETED;
+			p9$1.semaphore.release();
+
+			/*
+			 * Update current state
+			 */
+
+			target.reach();
+		}
+
+		/*
+		 * Return
+		 */
+
+		return canFire;
+	}
+
+	public void initialize(Protocol_d20160719_t144508_764_Connector protocol) {
+
+		/*
+		 * Set context
+		 */
+
+		this.context = protocol.automaton99.context;
+
+		/*
+		 * Set ports 
+		 */
+
+		this.UserIn$1 = protocol.UserIn$1;
+		this.p9$1 = protocol.p9$1;
+
+		/*
+		 * Set data constraint and target
+		 */
+
+		this.dataConstraint = new DataConstraint(protocol);
+
+		/*
+		 * Set target
+		 */
+
+		this.target = protocol.automaton99.state3;
+
+		/*
+		 * Return
+		 */
+
+		 return;
+	}
+
+	//
+	// METHODS - PROTECTED
+	//
+
+	@Override
+	protected boolean checkDataConstraint() {
+		return dataConstraint.solve();
+	}
+
+	protected boolean checkSynchronizationSet() {
+		return true
+			&& context.contains(0, 0b00000000000000000000000010000001)
+;
+	}
+
+	//
+	// CLASSES
+	//
+
+	class DataConstraint {
+
+		//
+		// FIELDS
+		//
+
+		/*
+		 * Public port variables
+		 */
+
+		final private CspPortVariable UserIn$1;
+		final private CspPortVariable p9$1;
+
+		/*
+		 * Pre variables
+		 */
+
+		final private CspPreVariable memoryCell2$pre;
+		final private CspPreVariable memoryCell3$pre;
+
+		/*
+		 * Post variables
+		 */
+
+		final private CspPostVariable memoryCell2$post;
+		final private CspPostVariable memoryCell3$post;
+		final private CspPostVariable memoryCell4$post;
+
+		//
+		// CONSTRUCTORS
+		//
+
+		public DataConstraint(Protocol_d20160719_t144508_764_Connector protocol) {
+
+			/*
+			 * Set variables
+			 */
+
+			this.UserIn$1 = protocol.variablePool.newOrGetPortVariable(protocol.UserIn$1);
+			this.p9$1 = protocol.variablePool.newOrGetPortVariable(protocol.p9$1);
+			this.memoryCell2$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell2);
+			this.memoryCell3$pre = protocol.variablePool.newOrGetPreVariable(protocol.memoryCell3);
+			this.memoryCell2$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell2);
+			this.memoryCell3$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell3);
+			this.memoryCell4$post = protocol.variablePool.newOrGetPostVariable(protocol.memoryCell4);
+
+			/*
+			 * Return
+			 */
+
+			return;
+		}
+
+		public boolean solve() {
+			memoryCell3$pre.importValue();
+			memoryCell2$pre.importValue();
+			UserIn$1.importValue();
+			memoryCell3$post.setValue(memoryCell3$pre.getValue());
+			memoryCell2$post.setValue(memoryCell2$pre.getValue());
+			memoryCell4$post.setValue(UserIn$1.getValue());
+			p9$1.setValue(UserIn$1.getValue());
+			p9$1.exportValue();
+			memoryCell2$post.exportValue();
+			memoryCell3$post.exportValue();
+			memoryCell4$post.exportValue();
+			return true;
+		}
+	}
+}
+
+class HandlerForUserIn$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort UserIn$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State5 state5;
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForUserIn$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.UserIn$1 = protocol.UserIn$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state5 = protocol.automaton99.state5;
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (UserIn$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port UserIn$1)
+		 */
+
+		/*
+		 * Ignore state #2 (which has no transitions involving port UserIn$1)
+		 */
+
+		/*
+		 * Ignore state #3 (which has no transitions involving port UserIn$1)
+		 */
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port UserIn$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #5 
+		 */
+
+		if (current.state == state5 && state5.transition12.fire())
+			return true;
+
+
+		UserIn$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000000001);
+		IO status = UserIn$1.status;
+		UserIn$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000000001);
+	}
+
+}
+
+class HandlerForUserOut$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort UserOut$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State2 state2;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State3 state3;
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State4 state4;
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForUserOut$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.UserOut$1 = protocol.UserOut$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state2 = protocol.automaton99.state2;
+		this.state3 = protocol.automaton99.state3;
+		this.state4 = protocol.automaton99.state4;
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (UserOut$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port UserOut$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #2 
+		 */
+
+		if (current.state == state2 && state2.transition7.fire())
+			return true;
+
+		/* 
+		 * Fire a transition from state #3 
+		 */
+
+		if (current.state == state3 && state3.transition8.fire())
+			return true;
+
+		/* 
+		 * Fire a transition from state #4 
+		 */
+
+		if (current.state == state4 && state4.transition9.fire())
+			return true;
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port UserOut$1)
+		 */
+
+
+		UserOut$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000010000);
+		IO status = UserOut$1.status;
+		UserOut$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000010000);
+	}
+
+}
+
+class HandlerForp13$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p13$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State3 state3;
+
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp13$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p13$1 = protocol.p13$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state3 = protocol.automaton99.state3;
+
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p13$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p13$1)
+		 */
+
+		/*
+		 * Ignore state #2 (which has no transitions involving port p13$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #3 
+		 */
+
+		if (current.state == state3 && fireTransitionFromState3())
+			return true;
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port p13$1)
+		 */
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port p13$1)
+		 */
+
+
+		p13$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000000010);
+		IO status = p13$1.status;
+		p13$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000000010);
+	}
+
+
+
+
+	private boolean fireTransitionFromState3() {
+		for (int i = state3.oTransitionsInvolvingp13$1Index; i < state3.oTransitionsInvolvingp13$1Index + 2; i++)
+			if (state3.oTransitionsInvolvingp13$1[i % 2].fire()) {
+				state3.oTransitionsInvolvingp13$1Index = (i + 1) % 2;
+				return true;
+			}
+
+		return false;
+	}
+}
+
+class HandlerForp17$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p17$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State3 state3;
+
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp17$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p17$1 = protocol.p17$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state3 = protocol.automaton99.state3;
+
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p17$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p17$1)
+		 */
+
+		/*
+		 * Ignore state #2 (which has no transitions involving port p17$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #3 
+		 */
+
+		if (current.state == state3 && state3.transition11.fire())
+			return true;
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port p17$1)
+		 */
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port p17$1)
+		 */
+
+
+		p17$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000100000);
+		IO status = p17$1.status;
+		p17$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000100000);
+	}
+
+}
+
+class HandlerForp21$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p21$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State2 state2;
+
+
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp21$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p21$1 = protocol.p21$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state2 = protocol.automaton99.state2;
+
+
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p21$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p21$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #2 
+		 */
+
+		if (current.state == state2 && fireTransitionFromState2())
+			return true;
+
+		/*
+		 * Ignore state #3 (which has no transitions involving port p21$1)
+		 */
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port p21$1)
+		 */
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port p21$1)
+		 */
+
+
+		p21$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000000100);
+		IO status = p21$1.status;
+		p21$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000000100);
+	}
+
+
+
+
+	private boolean fireTransitionFromState2() {
+		for (int i = state2.oTransitionsInvolvingp21$1Index; i < state2.oTransitionsInvolvingp21$1Index + 2; i++)
+			if (state2.oTransitionsInvolvingp21$1[i % 2].fire()) {
+				state2.oTransitionsInvolvingp21$1Index = (i + 1) % 2;
+				return true;
+			}
+
+		return false;
+	}
+}
+
+class HandlerForp25$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p25$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State2 state2;
+
+
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp25$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p25$1 = protocol.p25$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state2 = protocol.automaton99.state2;
+
+
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p25$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p25$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #2 
+		 */
+
+		if (current.state == state2 && state2.transition10.fire())
+			return true;
+
+		/*
+		 * Ignore state #3 (which has no transitions involving port p25$1)
+		 */
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port p25$1)
+		 */
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port p25$1)
+		 */
+
+
+		p25$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000001000000);
+		IO status = p25$1.status;
+		p25$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000001000000);
+	}
+
+}
+
+class HandlerForp29$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p29$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State4 state4;
+
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp29$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p29$1 = protocol.p29$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state4 = protocol.automaton99.state4;
+
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p29$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p29$1)
+		 */
+
+		/*
+		 * Ignore state #2 (which has no transitions involving port p29$1)
+		 */
+
+		/*
+		 * Ignore state #3 (which has no transitions involving port p29$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #4 
+		 */
+
+		if (current.state == state4 && state4.transition9.fire())
+			return true;
+
+		/*
+		 * Ignore state #5 (which has no transitions involving port p29$1)
+		 */
+
+
+		p29$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000000001000);
+		IO status = p29$1.status;
+		p29$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000000001000);
+	}
+
+}
+
+class HandlerForp9$1 extends Handler {
+
+	//
+	// FIELDS
+	//
+
+	/*
+	 * Context and port
+	 */
+
+	final Context context;
+	final PublicPort p9$1;
+
+	/*
+	 * Current state
+	 */
+
+	final Current current;
+
+	/*
+	 * States
+	 */
+
+	final Protocol_d20160719_t144508_764_Connector_Automaton99_State5 state5;
+
+	//
+	// CONSTRUCTORS
+	//
+
+	public HandlerForp9$1(Protocol_d20160719_t144508_764_Connector protocol) {
+		super(protocol.automaton99.semaphore);
+
+		/*
+		 * Set context and port
+		 */
+
+		this.context = protocol.automaton99.context;
+		this.p9$1 = protocol.p9$1;
+
+		/*
+		 * Set current state
+		 */
+
+		this.current = protocol.automaton99.current;
+
+		/*
+		 * Set states
+		 */
+
+		this.state5 = protocol.automaton99.state5;
+
+		/*
+		 * Return
+		 */
+
+		return;
+	}
+
+	//
+	// METHODS
+	//
+
+	@Override
+	public boolean call() {
+		if (p9$1.status == IO.COMPLETED)
+			return true;
+
+		/*
+		 * Ignore state #1 (which has no transitions involving port p9$1)
+		 */
+
+		/*
+		 * Ignore state #2 (which has no transitions involving port p9$1)
+		 */
+
+		/*
+		 * Ignore state #3 (which has no transitions involving port p9$1)
+		 */
+
+		/*
+		 * Ignore state #4 (which has no transitions involving port p9$1)
+		 */
+
+		/* 
+		 * Fire a transition from state #5 
+		 */
+
+		if (current.state == state5 && state5.transition12.fire())
+			return true;
+
+
+		p9$1.semaphore.drainPermits();
+		return false;
+	}
+
+	@Override
+	public boolean cancel() {
+		context.remove(0, 0b00000000000000000000000010000000);
+		IO status = p9$1.status;
+		p9$1.status = null;
+		return status == IO.COMPLETED;
+	}
+
+	@Override
+	public void flag() {
+		context.add(0, 0b00000000000000000000000010000000);
+	}
+
+}

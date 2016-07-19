@@ -1,0 +1,11 @@
+import nl.cwi.pr.runtime.api.InputPort;
+import nl.cwi.pr.runtime.api.OutputPort;
+
+public class Processes {
+
+	public static void Customer(InputPort in, OutputPort out) {
+		
+		Object o = in.getUninterruptibly();
+		out.putUninterruptibly(o);
+	}
+}

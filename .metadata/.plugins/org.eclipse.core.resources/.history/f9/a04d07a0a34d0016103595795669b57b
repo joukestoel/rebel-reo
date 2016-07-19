@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:reo="http://www.cwi.nl/reo">
+  <reo:Module xmi:id="_XC_m8E2jEeaXHs044WcTeg"/>
+  <notation:Diagram xmi:id="_XDq8YE2jEeaXHs044WcTeg" type="Reo" element="_XC_m8E2jEeaXHs044WcTeg" name="default.reo" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_XDq8YU2jEeaXHs044WcTeg"/>
+  </notation:Diagram>
+</xmi:XMI>

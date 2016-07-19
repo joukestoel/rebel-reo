@@ -1,0 +1,12 @@
+package sct;
+
+public class Functions {
+
+	public boolean Reject(Object o) {
+		return "reject".equals(o);
+	}
+	
+	public boolean Accept(Object o) {
+		return "accept".equals(o);
+	}
+}

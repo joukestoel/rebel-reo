@@ -1,0 +1,106 @@
+package pr.d20160719_t140626_447;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+import nl.cwi.pr.runtime.*;
+import nl.cwi.pr.runtime.api.*;
+
+public class Worker_d20160719_t140626_845_Product extends Thread {
+	private final OutputPort p29$1;
+	private final InputPort p25$1;
+
+	public Worker_d20160719_t140626_845_Product(
+		OutputPort p29$1,
+		InputPort p25$1
+	) {
+		this.p29$1 = p29$1;
+		this.p25$1 = p25$1;
+	}
+
+	@Override
+	public void run() {
+		List<Throwable> exceptions = new ArrayList<>();
+
+		/* 
+		 * Treat "sct.Processes.Product" as a class of type Runnable
+		 */
+
+		Runnable runnable = null;
+		try {
+			Class<?> workerClass = Class.forName("sct.Processes.Product");
+			Object workerInstance = null;
+			for (Constructor<?> constr : workerClass.getConstructors())
+				try {
+					constr.setAccessible(true);
+					workerInstance = constr.newInstance(
+						p25$1,
+						p29$1
+					);
+				} catch (Throwable throwable) {
+					exceptions.add(throwable);
+				}
+
+			if (workerInstance == null)
+				throw new Error(
+						"Class \"sct.Processes.Product\" has no constructor for the provided arguments");
+
+			if (!(workerInstance instanceof Runnable))
+				throw new Error(
+						"Class \"sct.Processes.Product\" does not implement interface Runnable");
+
+			runnable = (Runnable) workerInstance;
+		}
+
+		catch (Throwable throwable) {
+			exceptions.add(throwable);
+		}
+
+		if (runnable != null) {
+			runnable.run();
+			return;
+		}
+
+		/*
+		 * Treat "sct.Processes.Product" as a static method
+		 */
+
+		int lastDotIndex = "sct.Processes.Product".lastIndexOf('.');
+		if ("sct.Processes.Product".startsWith(".") || "sct.Processes.Product".endsWith("."))
+			throw new Error("Failed to load worker \"sct.Processes.Product\"");
+		if (lastDotIndex == -1)
+			throw new Error("Failed to load worker \"sct.Processes.Product\"");
+
+		String className = "sct.Processes.Product".substring(0, lastDotIndex);
+		String methodName = "sct.Processes.Product".substring(lastDotIndex + 1);
+
+		boolean hasMethod = false;
+
+		try {
+			Class<?> workerClass = Class.forName(className);
+			for (Method meth : workerClass.getMethods())
+				if (meth.getName().equals(methodName)) {
+					meth.setAccessible(true);
+					meth.invoke(
+						null, 
+						p25$1,
+						p29$1
+					);
+					hasMethod = true;
+				}
+		}
+
+		catch (Throwable throwable) {
+			exceptions.add(throwable);
+		}
+
+		if (!hasMethod) {
+			for (Throwable thr : exceptions)
+				thr.printStackTrace();
+
+			throw new Error("Failed to load worker \"sct.Processes.Product\" because of the following exceptions: " + exceptions.toString());
+		}
+	}
+}
