@@ -1,8 +1,0 @@
-package sct;
-
-public class Functions {
-
-	public boolean isReject(Object o) {
-		return "reject".equals(o);
-	}
-}

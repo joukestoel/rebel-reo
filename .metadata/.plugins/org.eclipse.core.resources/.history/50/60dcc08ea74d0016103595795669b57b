@@ -1,9 +1,0 @@
-import nl.cwi.pr.runtime.api.InputPort;
-import nl.cwi.pr.runtime.api.OutputPort;
-
-public class Processes {
-
-	public static void Customer(InputPort in, OutputPort out) {
-		
-	}
-}
